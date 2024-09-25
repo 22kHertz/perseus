@@ -28,7 +28,7 @@ class DatabaseInstance:
         dbConnection = con.connect(
             host=self.hostip,
             user="root",
-            password="Replace_me_wh3n_deploying_on_public_server",
+            password="phu4QVlJO6eQ0kg8902oSO",
             database="aris",
         )
         dbCursor = dbConnection.cursor(buffered=True)
