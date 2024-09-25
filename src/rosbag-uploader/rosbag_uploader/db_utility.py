@@ -26,9 +26,9 @@ class DatabaseInstance:
     # Connects to the running MySQL instance, selects the 'dacs' DB and returns a cursor to it
     def establishConnection(self):
         dbConnection = con.connect(
-            host="aris-helios.vsos.ethz.ch",
+            host="perseus.vsos.ethz.ch",
             user="root",
-            password="Replace_me_wh3n_deploying_on_public_server",
+            password="phu4QVlJO6eQ0kg8902oSO",
             database="aris",
         )
         dbCursor = dbConnection.cursor()
