@@ -7,12 +7,12 @@ services:
   database:
     image: mysql:8.4
     restart: always
-    container_name: helios-database
+    container_name: perseus-database
 
     environment:
       MYSQL_DATABASE: aris
       # [WARNING!]: Make sure to update the password below with the one from the wiki when deploying!
-      MYSQL_ROOT_PASSWORD: Replace_me_wh3n_deploying_on_public_server
+      MYSQL_ROOT_PASSWORD: phu4QVlJO6eQ0kg8902oSO
 
     volumes:
       # Named volume that contains database content
@@ -38,7 +38,7 @@ services:
 
   # Web app to upload rosbags
   web_uploader: # <--- needs to match with Caddyfile
-    container_name: helios-rosbag-uploader
+    container_name: perseus-rosbag-uploader
     restart: always
     build:
       # Build in the context of the subdirectory containing the Python code
