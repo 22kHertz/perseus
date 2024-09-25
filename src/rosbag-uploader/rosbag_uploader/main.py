@@ -24,8 +24,8 @@ UPLOAD_FOLDER = "uploads"
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024 * 1024
 
 # Set the username and password for HTTP Basic Authentication
-USERNAME = "CHANGE_ME"
-PASSWORD = "CHANGE_ME"
+USERNAME = "aris"
+PASSWORD = "aris"
 
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
