@@ -1,2 +1,6 @@
 # uploads
 src/uploads/
+
+#ignore venv
+
+src/rosbag-uploader/venv
