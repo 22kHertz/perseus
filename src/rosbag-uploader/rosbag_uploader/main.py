@@ -123,7 +123,7 @@ def upload_file():
     configure_db_result = configure_db_main(
         configFilePath=excel_file_path,
         description=comment_text,
-        hostip="database",
+        hostip="192.33.91.72",
     )
     if not configure_db_result:
         # Something went wrong, send back an error
@@ -135,7 +135,7 @@ def upload_file():
     app.logger.info("Running read_bags")
     read_bag_result = read_bag_main(
         bagdirectory=upload_subfolder_rosbags,
-        database_hostname="database",
+        database_hostname="perseus",
     )
     if not read_bag_result:
         # Something went wrong, send back an error
