@@ -73,6 +73,8 @@ def upload_file():
     Checks for rosbags, config file, and comment. Returns an error if any are missing.
     Saves the uploaded data in a date annotated folder.
     """
+    app.logger.info("Received request")
+
     if "rosbags" not in request.files:
         return jsonify({"error": "Backend: No rosbags provided"}), 400
 
@@ -123,7 +125,7 @@ def upload_file():
     configure_db_result = configure_db_main(
         configFilePath=excel_file_path,
         description=comment_text,
-        hostip="192.33.91.72",
+        hostip="database",
     )
     if not configure_db_result:
         # Something went wrong, send back an error
@@ -135,7 +137,7 @@ def upload_file():
     app.logger.info("Running read_bags")
     read_bag_result = read_bag_main(
         bagdirectory=upload_subfolder_rosbags,
-        database_hostname="perseus",
+        database_hostname="database",
     )
     if not read_bag_result:
         # Something went wrong, send back an error
@@ -161,7 +163,7 @@ if __name__ == "__main__":
     # Use waitress if installed (i.e. in production)
     try:
         from waitress import serve
-        serve(app, host="0.0.0.0", port=8000)
+        serve(app, host="0.0.0.0", port=8000, max_request_body_size=50 * 1024 * 1024 * 1024)
 
     # Fall back to debug server in dev
     except ModuleNotFoundError:

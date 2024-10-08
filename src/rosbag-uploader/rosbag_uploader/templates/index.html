@@ -93,6 +93,7 @@
         body: formData,
         credentials: 'include'  // Ensure credentials are included in the request
       }).then(response => {
+        console.log("Response:", response);
         if (!response.ok) {
           // If the response is not OK (status 400-599), throw an error
           return response.json().then(errData => {
@@ -113,7 +114,11 @@
           console.error("Error:", error);
           alert(`Upload failed: ${error.message}`);
         });
-    });
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    })
+    ;
   </script>
 </body>
 
